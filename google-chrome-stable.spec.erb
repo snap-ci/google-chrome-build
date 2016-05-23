@@ -1,0 +1,25 @@
+Name: google-chrome-stable
+Version: <%= version %>
+Release: <%= release %>
+Summary: Google Chrome
+BuildArch: x86_64
+AutoReq: no
+AutoProv: no
+
+Group: default
+License: Multiple, see https://chrome.google.com/
+Vendor: support@snap-ci.com
+URL: http://snap-ci.com
+Packager: support@snap-ci.com
+
+%description
+The web browser from Google Google Chrome is a browser that combines a minimal design with sophisticated technology to make the web faster, safer, and easier.
+%files
+
+# default attributes for everything, owned by root
+%defattr(-,root,root,-)
+
+%changelog
+# noop
+
+# vim: ft=eruby.spec
