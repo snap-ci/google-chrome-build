@@ -49,6 +49,9 @@ namespace :chrome do
     cd 'src' do
       sh("mkdir opt/google/chrome/lib")
     end
+
+    sh('sudo rpm --replacepkgs -Uvh http://li.nux.ro/download/nux/dextop/el6/x86_64/nux-dextop-release-0-2.el6.nux.noarch.rpm')
+    sh('sudo yumdownloader chrome-deps-stable --destdir pkg/')
   end
 
   task :repackage_rpm do
