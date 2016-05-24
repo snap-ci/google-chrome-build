@@ -16,7 +16,7 @@ namespace :chrome do
   release = Time.now.utc.strftime('%Y%m%d%H%M%S')
   chrome_rpm = 'google-chrome-stable_current_x86_64.rpm'
   download_url = "https://dl.google.com/linux/direct/#{chrome_rpm}"
-  jailed_root = File.expand_path('../jailed-root', __FILE__)
+  jailed_root = File.expand_path('../src', __FILE__)
   prebuilt_lib = 'libstdc++.so.6'
 
   CLEAN.include("downloads")
@@ -46,13 +46,8 @@ namespace :chrome do
   end
 
   task :prebuilt_libs do
-    cd 'downloads' do
-      sh("curl --fail --location http://chrome.richardlloyd.org.uk/libstdc++.so.6.xz > libstdc++.so.6.xz")
-    end
-
     cd 'src' do
       sh("mkdir opt/google/chrome/lib")
-      sh("xzcat -f ../downloads/#{prebuilt_lib}.xz > opt/google/chrome/lib/#{prebuilt_lib}")
     end
   end
 
